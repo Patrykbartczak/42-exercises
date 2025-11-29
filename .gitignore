@@ -2,3 +2,7 @@
 venv/
 .venv/
 list.py
+.idea/
+.idea
+/.idea
+idea/
