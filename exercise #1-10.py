@@ -1,3 +1,5 @@
+import random,sys
+
             # 1. Hello World!
 
 # print('Hello World')
@@ -10,7 +12,6 @@
 def convertofahrenheit(cel):
     #Calculate and return the degrees Fahrenheit:
     return cel * (9/5) + 32
-
 def converttocelsius(fah):
     #Calculate and return the degrees celsius:
     return (fah - 32) * (5/9)
@@ -20,7 +21,6 @@ def converttocelsius(fah):
 def isOdd(num):
     # Return whether number mod 2 is 1:
     return num % 2 == 1
-
 def isEven(num):
     # Return whether number mod (modulo) 2 is 0:
             return num % 2 == 0
@@ -60,3 +60,63 @@ def FizzBuzz(upTo):
 
 
             # 6. Ordinal suffix
+
+def ordinalSuffix(num):
+    numberStr = str(num)
+    #11,12,13 have the suffix "th"
+
+
+            # 7. Rock, paper, scissor
+wins = 0
+losses = 0
+ties = 0
+
+while True:
+    print('%s wins, %s loses, %s ties' %(wins,losses,ties))
+    while True:
+        print('Podaj swój wybór: (k)amień, (p)apier, (n)ożyce lub (w)yjście') # ruch gracza
+        player_move = input()
+        if player_move == 'w':
+            sys.exit() # koniec gry
+        elif player_move == 'k' or player_move == 'p' or player_move == 'n':
+            break
+        print('Wpisz litere k,p,n,w jako swój wybór: ')
+
+    if player_move == 'k':
+        print('Kamień vs..')
+    elif player_move == 'p':
+        print('Papier vs...')
+    elif player_move == 'n':
+        print('Nożyce vs..')
+
+    random_number = random.randint(1,3)
+    if random_number == 1:
+        computer_move = 'k'
+        print('Kamień!')
+    elif random_number == 2:
+        computer_move = 'p'
+        print('Papier!')
+    elif random_number == 3:
+        computer_move = 'n'
+        print('Nożyce!')
+    if player_move == computer_move:
+        print('Mamy remis!')
+        ties += 1
+    elif player_move == 'k' and computer_move == 'n':
+        print('Wygrałeś!')
+        wins += 1
+    elif player_move == 'n' and computer_move == 'k':
+        print('Przegrałeś!')
+        losses += 1
+    elif player_move == 'k' and computer_move == 'p':
+        print('Przegrałeś!')
+        losses += 1
+    elif player_move == 'n' and computer_move == 'p':
+        print('Wygrałeś!')
+        wins += 1
+    elif player_move == 'p' and computer_move == 'k':
+        print('Wygrałeś!')
+        wins += 1
+    elif player_move == 'p' and computer_move == 'n':
+        print('Przegrałeś')
+        losses += 1
