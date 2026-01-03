@@ -71,52 +71,71 @@ wins = 0
 losses = 0
 ties = 0
 
-while True:
-    print('%s wins, %s loses, %s ties' %(wins,losses,ties))
-    while True:
-        print('Podaj swój wybór: (k)amień, (p)apier, (n)ożyce lub (w)yjście') # ruch gracza
-        player_move = input()
-        if player_move == 'w':
-            sys.exit() # koniec gry
-        elif player_move == 'k' or player_move == 'p' or player_move == 'n':
-            break
-        print('Wpisz litere k,p,n,w jako swój wybór: ')
+# while True:
+#     print('%s wins, %s loses, %s ties' %(wins,losses,ties))
+#     while True:
+#         print('Podaj swój wybór: (k)amień, (p)apier, (n)ożyce lub (w)yjście') # ruch gracza
+#         player_move = input()
+#         if player_move == 'w':
+#             sys.exit() # koniec gry
+#         if player_move == 'k' or player_move == 'p' or player_move == 'n':
+#             break
+#         print('Wpisz litere k,p,n,w jako swój wybór: ')
+#
+#     if player_move == 'k':
+#         print('Kamień vs..')
+#     elif player_move == 'p':
+#         print('Papier vs...')
+#     elif player_move == 'n':
+#         print('Nożyce vs..')
+#
+#     random_number = random.randint(1,3)
+#     if random_number == 1:
+#         computer_move = 'k'
+#         print('Kamień!')
+#     elif random_number == 2:
+#         computer_move = 'p'
+#         print('Papier!')
+#     elif random_number == 3:
+#         computer_move = 'n'
+#         print('Nożyce!')
+#     if player_move == computer_move:
+#         print('Mamy remis!')
+#         ties += 1
+#     elif player_move == 'k' and computer_move == 'n':
+#         print('Wygrałeś!')
+#         wins += 1
+#     elif player_move == 'n' and computer_move == 'k':
+#         print('Przegrałeś!')
+#         losses += 1
+#     elif player_move == 'k' and computer_move == 'p':
+#         print('Przegrałeś!')
+#         losses += 1
+#     elif player_move == 'n' and computer_move == 'p':
+#         print('Wygrałeś!')
+#         wins += 1
+#     elif player_move == 'p' and computer_move == 'k':
+#         print('Wygrałeś!')
+#         wins += 1
+#     elif player_move == 'p' and computer_move == 'n':
+#         print('Przegrałeś')
+#         losses += 1
+#
+#             # 8. Random guess number
+secret_number = random.randint(1,20)
 
-    if player_move == 'k':
-        print('Kamień vs..')
-    elif player_move == 'p':
-        print('Papier vs...')
-    elif player_move == 'n':
-        print('Nożyce vs..')
+print('Mam na myśli liczbę z zakresu 1-20, odganij ją, Masz 6 prób')
 
-    random_number = random.randint(1,3)
-    if random_number == 1:
-        computer_move = 'k'
-        print('Kamień!')
-    elif random_number == 2:
-        computer_move = 'p'
-        print('Papier!')
-    elif random_number == 3:
-        computer_move = 'n'
-        print('Nożyce!')
-    if player_move == computer_move:
-        print('Mamy remis!')
-        ties += 1
-    elif player_move == 'k' and computer_move == 'n':
-        print('Wygrałeś!')
-        wins += 1
-    elif player_move == 'n' and computer_move == 'k':
-        print('Przegrałeś!')
-        losses += 1
-    elif player_move == 'k' and computer_move == 'p':
-        print('Przegrałeś!')
-        losses += 1
-    elif player_move == 'n' and computer_move == 'p':
-        print('Wygrałeś!')
-        wins += 1
-    elif player_move == 'p' and computer_move == 'k':
-        print('Wygrałeś!')
-        wins += 1
-    elif player_move == 'p' and computer_move == 'n':
-        print('Przegrałeś')
-        losses += 1
+for guess_taken in range(1,7):
+    print('Spróbuj odgadnąć: !')
+    guess = int(input())
+    if guess < secret_number:
+        print('Za mała!')
+    elif guess > secret_number:
+        print('Za duża')
+    else:
+        break
+if guess == secret_number:
+    print('Doskonale, udało ci się odganąć!')
+else:
+    print('Nie udało się, ale możesz znów spróbować :)')
